@@ -1,0 +1,17 @@
+{
+  "name": "scrapper",
+  "version": "1.0.0",
+  "description": "A tset scrapper",
+  "main": "testScrapper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "srikrishnan",
+  "license": "ISC",
+  "devDependencies": {
+    "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.12",
+    "chromedriver": "^103.0.0",
+    "selenium-webdriver": "^4.3.1"
+  }
+}
