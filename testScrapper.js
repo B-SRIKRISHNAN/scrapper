@@ -2,6 +2,8 @@ const chromedriver = require('chromedriver');
 const webdriver = require('selenium-webdriver');
 const cmdInput = require('readline');
 const { stdin, stdout } = require('process');
+const { Options } = require('selenium-webdriver/chrome');
+const { PageLoadStrategy } = require('selenium-webdriver/lib/capabilities');
 const values = cmdInput.createInterface({
     input: process.stdin,
     output: process.stdout
@@ -11,8 +13,10 @@ let artifactId;
 let dependencyInputs = [];
 let url = "https://start.spring.io";
 let accessWeb = async (dep1, groupName, artifactName) => {
-    let browser = await new webdriver.Builder().forBrowser('chrome').build();
-    let site = await browser.get(url);
+    
+    let browser = await new webdriver.Builder().setChromeOptions(new Options().addArguments("--headless","--window-size=1920,1080").setUserPreferences({"download.default_directory":"C:\\users\\bsk19\\downloads"})).forBrowser('chrome').build();
+    
+    await browser.get(url);
     let generateProject = await browser.findElement(webdriver.By.css("#generate-project"))
     let groupNAme = await browser.findElement(webdriver.By.css('#input-group'))
     await groupNAme.clear()
@@ -37,7 +41,8 @@ let accessWeb = async (dep1, groupName, artifactName) => {
            
                 for (let dep of dep1) {
                 if (text == dep) {
-                    element.click();
+                    console.log(text);
+                    await element.click();
                 }
             }
         
@@ -49,7 +54,8 @@ let accessWeb = async (dep1, groupName, artifactName) => {
 
     setTimeout(async () => {
 
-    await generateProject.click()
+        try{
+    await generateProject.click()}catch(e){console.log(e);}
     //   .then(async res=>{
     //     await browser.quit();
     //   })

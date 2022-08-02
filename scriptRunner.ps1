@@ -4,18 +4,17 @@ $filename = Read-Host -prompt "Enter artifact name "
 $download = "C:\Users\bsk19\Downloads\"+$filename+".zip"
 $toPath = Read-Host -prompt "Enter unzip directory"
 expand-archive -literalPath $download -DestinationPath $toPath
-cd $toPath
+Set-Location $toPath
 $groupId = Read-Host -prompt "Enter group path (eg :com/niit)"
 $mainpath = $filename + "/src/main/java/"+ $groupId + "/" + $filename
-cd $mainpath
+Set-Location $mainpath
 mkdir controller
 mkdir services
 mkdir model
 mkdir repository
 mkdir aspects
-cd ../../../../resources
+Set-Location ../../../../resources
 new-item logback.xml
-cd ../../../
-
+Set-Location ../../../
 
  
