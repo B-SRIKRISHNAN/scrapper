@@ -1,0 +1,2 @@
+﻿groupId: com.niit
+artifactId: musicapp
