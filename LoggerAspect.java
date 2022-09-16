@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class LoggerAspect {
     private static final Logger logger = LoggerFactory.getLogger(LoggerAspect.class);
     
-    @Pointcut("execution(* com.niit.musicapp.*.*(..))")
+    @Pointcut("execution(* com.niit.automate.*.*(..))")
     public void allMethods()
     {}
 

@@ -1,2 +1,2 @@
 ﻿groupId: com.niit
-artifactId: musicapp
+artifactId: automate
